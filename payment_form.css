@@ -1,0 +1,124 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Payment Container */
+.payment-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.payment-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ffaf7b;
+    letter-spacing: 1.5px;
+}
+
+/* Form Elements */
+form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #d1d1d1;
+}
+
+form select,
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form select:focus,
+form input:focus {
+    outline: none;
+    border-color: #ffaf7b;
+}
+
+.paybtn {
+    width: 100%;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.paybtn:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+}
+
+/* Back Button */
+.backbtn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.backbtn:hover {
+    background: #ff7e5f;
+}
+
+/* UPI and Bank Details */
+#upi-details,
+#bank-details {
+    text-align: left;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .payment-container {
+        width: 90%;
+    }
+
+    form label,
+    form select,
+    form input,
+    .paybtn,
+    .backbtn {
+        font-size: 14px;
+    }
+}

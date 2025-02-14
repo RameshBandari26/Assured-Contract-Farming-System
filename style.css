@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('agricultural.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    padding-top: 90px;
+}
+
+header {
+    background-color: #11c60b;
+    color: white;
+    padding: 8px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav a {
+    margin: 2px 15px;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+nav a:hover{
+    width: 130px;
+    height: 50px;
+    color: black;
+    border-radius: 6px;
+}
+nav a:active{
+    width: 130px;
+    height: 50px;
+    color: black;
+    border-radius: 6px;
+}
+
+main {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+h1, h2 {
+    margin: 0 0 20px 0;
+}
+

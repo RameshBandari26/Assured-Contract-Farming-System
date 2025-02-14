@@ -1,0 +1,147 @@
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('growing-organic-ecological-plants-fields-background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: #ffffff54;
+    border: 2px solid white;
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+.wrapper.form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box h1 {
+    font-size: 2rem;
+    color: rgb(7, 134, 56);
+    text-align: center;
+}
+
+a {
+    color: rgb(13, 13, 13);
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgb(14, 195, 63);
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -3px;
+}
+
+.input-box input {
+    width: 300px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: black;
+    font-weight: 300;
+    padding: 0 35px 0 5px;
+}
+
+.button {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #0fff003d;
+}
+
+.button:hover {
+    background-color: rgb(3, 94, 3);
+    font-size: large;
+    font-weight: bold;
+}
+
+.bt {
+    width: 40%;
+    height: 30px;
+    position: relative;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #0fff003d;
+}
+
+.bt:hover {
+    background-color: rgb(3, 94, 3);
+    font-size: large;
+    font-weight: bold;
+}
+
+.Register {
+    text-align: center;
+    justify-content: center;
+}
+
+.forgotPassword {
+    justify-content: right;
+}
+
+.forgotPassword a {
+    text-decoration: none;
+    color: black;
+}
+
+.forgotPassword a:hover {
+    color: blue;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,76 @@
+
+        body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(150deg, #dbf1c8, #04f344);
+    min-height: 100vh;
+}
+.container{
+    width: 100%;
+    max-width: 500px;
+    background: #d9faf79d;
+    margin: 150px auto 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #adece1;
+}
+.sub-container{
+    margin: 60px;
+}
+.heading{
+    color: #1100ff;
+}
+.form{
+    margin: 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size:medium;
+    cursor: pointer;
+}
+label{
+    font-size: large;
+    font-weight: 510;
+}
+.btn1{
+    padding: 10px;
+    margin: 30px 0;
+    background: #b204f6;
+    border-radius: 15px;
+    color: #fff;
+    font-size: larger;
+    font-weight: 600;
+    width: 350px;
+    transition: 1s;
+}
+a{
+    text-decoration: none;
+}
+
+.btn1:hover{
+    box-shadow: 0px 0px 50px lightgray inset,
+    0px 0px 50px lightgray inset,0px 0px 50px lightgray inset,
+   0px 0px 50px lightgray;
+}
+.btn1:active{
+    background: #59024a;
+}
+
+.btn2{
+    transition: 1s;
+            cursor: pointer;
+            color: #fff;
+            padding: 6px;
+            border-radius: 15px;
+            font-size: 25px;
+            background-color: green;
+            width: 350px;
+        }
+.btn2:hover{
+    box-shadow: 0px 0px 50px lightgray inset,
+    0px 0px 50px lightgray inset,0px 0px 50px lightgray inset,
+   0px 0px 50px lightgray
+}
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assured Contract Farming System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1><img src="logo.png" width="5%" height="5%" class="logo">
+             Assured Contract Farming System</h1>
+            <nav>
+                <a href="./Admin/admin_login.jsp">Admin Login</a> 
+                <a href="login.jsp">User Login</a>
+                <a href="register.jsp">User Register</a>
+                <a href="browse_crops.jsp">Browse Crops</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Scrolling Headlines -->
+    <section class="news-ticker">
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker-item">🔔 Register now and secure contracts for your crops!</div>
+                <div class="ticker-item">💰 Get guaranteed payments with every successful contract!</div>
+                <div class="ticker-item">🚜 Browse a variety of crops and connect with buyers instantly.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container2">
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Secure Contracts for Stable Market Access</h2>
+                    <p>Our platform bridges the gap between farmers and buyers by providing transparent agreements, fair
+                        price negotiation, and secure payments for crop produce. Join us to ensure a stable income and
+                        reliable market access.</p>
+                    <div class="cta-buttons">
+                        <a href="login.jsp" class="btn secondary">Get Started Login</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h3>Why Choose Us?</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-file-contract fa-3x"></i>
+                            <h4>Transparent Contracts</h4>
+                            <p>Ensure fair negotiations and clear agreements between farmers and buyers.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-money-check-alt fa-3x"></i>
+                            <h4>Secure Payments</h4>
+                            <p>Reliable payment processing guarantees that farmers are paid on time.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line fa-3x"></i>
+                            <h4>Market Stability</h4>
+                            <p>Access a reliable market to sell your crops without worrying about price fluctuations.
+                            </p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-user-friends fa-3x"></i>
+                            <h4>Easy to Use</h4>
+                            <p>Our platform is designed for ease of use, ensuring a seamless experience for both farmers
+                                and buyers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Back to Top Button -->
+        <button id="backToTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Assured Contract Farming System. All rights reserved.</p>
+                <nav>
+                    <a href="contact.jsp">Contact Us</a>
+                    <a href="about.jsp">About Us</a>
+                    <a href="privacy_policy.jsp">Privacy Policy</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        // document.querySelectorAll('nav a').forEach(anchor => {
+        //     anchor.addEventListener('click', function (e) {
+        //         e.preventDefault();
+        //         document.querySelector(this.getAttribute('href')).scrollIntoView({
+        //             behavior: 'smooth'
+        //         });
+        //     });
+        // });
+
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

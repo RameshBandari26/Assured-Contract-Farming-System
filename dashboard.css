@@ -1,0 +1,71 @@
+.crop-list-container {
+    max-width: 100%;
+    display: flex;
+    /* Align items in a row */
+    gap: 20px;
+    /* Add spacing between items */
+    flex-wrap: wrap;
+    justify-content: left;
+    text-align: center;
+}
+
+.containerBox {
+    border: 3px solid #faf7f7;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f992;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    /* Set a consistent width */
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition */
+}
+
+.containerBox:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: #e2e2e2;
+    background-color: #ffffff;
+}
+
+.backbtn {
+    padding: 10px;
+    background-color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.listCrop {
+    padding: 10px;
+    background-color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+}
+
+.listCrop:hover {
+    background-color: rgb(75, 75, 125);
+}
+
+.buttons {
+    display: flex;
+    margin-top: 10px;
+}
+
+.update {
+    padding: 6px;
+    background-color: greenyellow;
+    border-radius: 6px;
+    font-weight: bolder;
+}
+
+.delete {
+    padding: 6px;
+    margin-left: 10px;
+    background-color: red;
+    border-radius: 6px;
+    font-weight: bolder;
+}

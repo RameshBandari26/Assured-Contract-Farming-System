@@ -1,0 +1,94 @@
+body{
+    background: linear-gradient(145deg, #ad82e3, #621db5);
+    min-height: 100vh;
+    margin-left: 5%;
+    
+}
+h2{
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: xx-large;
+}
+
+.search-bar {
+    margin: 20px auto;
+    text-align: center;
+}
+.search-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+.search-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search-button:hover {
+    background-color: #218838;
+}
+
+.crop-list-container {
+max-width: 100%;
+display:flex;
+gap: 20px;
+flex-wrap: wrap;
+justify-content: left;
+text-align: center;
+}
+.containerBox {
+    border: 3px solid #faf7f7;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f992;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.containerBox:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: #e2e2e2;
+    background-color: #ffffff;
+}
+
+
+.backbutton{
+padding: 20px;
+text-align: center;
+justify-content: center;
+}
+button{
+background-color: rgb(33, 9, 216);
+font-size: larger;
+font-weight: bold;
+width: 250PX;
+padding: 10PX;
+color: white;
+border-radius: 25px;
+border: 2px solid rgba(255, 255, 255, 0.696);
+}
+button:hover{
+background-color: rgb(17, 4, 113);
+}
+
+.initiate_contract{
+    padding: 8px;
+    background-color: rgb(47, 255, 71);
+    border: none;
+    border-radius: 6px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.initiate_contract:hover{
+    background-color: rgb(21, 173, 39);
+}

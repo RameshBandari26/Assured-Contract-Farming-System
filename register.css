@@ -1,0 +1,147 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    background: url('reg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.title {
+    text-align: center;
+    width: 900px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.reg {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    color: green;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.2rem;
+    display: block;
+    margin: 15px 0 5px;
+}
+
+input, select {
+    width: 90%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 15px;
+    background-color: #ffffff6d;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(11, 144, 11);
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+}
+a{
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .reg {
+        padding: 15px;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    label {
+        font-size: 1.1rem;
+    }
+
+    input, select {
+        height: 35px;
+    }
+
+    button {
+        width: 40%;
+        font-size: 1rem;
+    }
+}
+/* Animation Keyframes */
+@keyframes fadeIn {
+0% {
+opacity: 0;
+transform: translateY(20px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes colorPulse {
+0% {
+color: #eaedea; /* Forest Green */
+}
+50% {
+color: #e8eae8; /* Lime Green */
+}
+100% {
+color: #f2f4f2; /* Forest Green */
+}
+}
+
+/* Welcome Message Style */
+#welcome-message {
+font-size: 1.5rem;
+color: #eef4ee; /* Initial color */
+animation: fadeIn 2s ease-in-out, colorPulse 3s infinite;
+text-align: center;
+margin-top: 20px;
+}
+

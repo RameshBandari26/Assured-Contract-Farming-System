@@ -1,0 +1,11 @@
+@startuml
+    class User
+    class Farmer
+    class Buyer
+    class Crop
+    class Request
+    User <|-- Farmer
+    User <|-- Buyer
+    Farmer --> Crop
+    Buyer --> Request
+    @enduml
