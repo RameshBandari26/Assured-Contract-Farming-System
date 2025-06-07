@@ -1,20 +1,13 @@
-FROM openjdk:21-jdk
+FROM tomcat:10.1.14-jdk17-temurin
 
-ENV TOMCAT_VERSION=11.0.0-M19
-ENV CATALINA_HOME=/usr/local/tomcat
-ENV PATH=$CATALINA_HOME/bin:$PATH
+# Remove default Tomcat webapps to avoid conflicts
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-RUN apt-get update && apt-get install -y wget curl \
-    && wget https://downloads.apache.org/tomcat/tomcat-11/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
-    && mkdir -p $CATALINA_HOME \
-    && tar xzf apache-tomcat-${TOMCAT_VERSION}.tar.gz -C $CATALINA_HOME --strip-components=1 \
-    && rm apache-tomcat-${TOMCAT_VERSION}.tar.gz \
-    && apt-get clean
+# Copy your exploded WAR content to the ROOT webapp directory
+COPY . /usr/local/tomcat/webapps/ROOT/
 
-RUN rm -rf $CATALINA_HOME/webapps/*
-
-COPY . $CATALINA_HOME/webapps/ROOT/
-
+# Expose port 8080 (Tomcat default)
 EXPOSE 8080
 
+# Use the default startup command for Tomcat
 CMD ["catalina.sh", "run"]
