@@ -14,7 +14,7 @@
     Connection con = null;
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        con = db.DBConnection.getConnection();
     } catch (Exception e) {
         out.println("Error establishing database connection: " + e.getMessage());
     }

@@ -22,7 +22,7 @@
         try {
             // Establish database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+            conn = db.DBConnection.getConnection();
 
             // Check if the crop is under contract
             String checkContractQuery = "SELECT COUNT(*) AS contract_count FROM contracts WHERE crop_id = ?";

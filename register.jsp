@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*, db.DBConnection" %>
 <!DOCTYPE html>
 <html>
 
@@ -50,7 +50,6 @@
     </div>
 
     <%
-        // Get form data
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -59,20 +58,17 @@
 
         if (username != null && email != null && password != null && role != null && address != null) {
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
-                
+                Connection con = DBConnection.getConnection();
+
                 // Check if the email is already registered
                 String checkQuery = "SELECT COUNT(*) AS count FROM users WHERE email = ?";
                 PreparedStatement checkStmt = con.prepareStatement(checkQuery);
                 checkStmt.setString(1, email);
                 ResultSet rs = checkStmt.executeQuery();
-                
+
                 if (rs.next() && rs.getInt("count") > 0) {
-                    // Email already exists
                     out.println("<script>alert('This email is already registered. Please log in or use another email.');</script>");
                 } else {
-                    // Insert new user
                     String query = "INSERT INTO users (username, email, password, role, address) VALUES (?, ?, ?, ?, ?)";
                     PreparedStatement pst = con.prepareStatement(query);
                     pst.setString(1, username);
@@ -82,7 +78,7 @@
                     pst.setString(5, address);
 
                     int result = pst.executeUpdate();
-                    
+
                     if (result > 0) {
                         out.println("<script>alert('Registration successful! Redirecting to login page.');</script>");
                         response.sendRedirect("login.jsp");
@@ -99,7 +95,7 @@
     %>
 
     <script>
-        // Adding hover animation
+        // Hover animation for welcome message
         const welcomeMessage = document.getElementById('welcome-message');
 
         welcomeMessage.addEventListener('mouseover', () => {

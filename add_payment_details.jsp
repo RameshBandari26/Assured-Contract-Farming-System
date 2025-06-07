@@ -21,7 +21,8 @@
     try {
         // Database connection
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        conn = db.DBConnection.getConnection();
+
 
         // Check if the user already has payment details
         String checkQuery = "SELECT upi_id, account_number, ifsc_code FROM users WHERE username = ?";

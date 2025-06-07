@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*, db.DBConnection" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,15 +33,13 @@
         </div>
     </div>
 
-
-    <% 
+    <%
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
         if (email != null && password != null) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+                Connection con = DBConnection.getConnection();
 
                 String query = "SELECT * FROM users WHERE email = ? AND password = ?";
                 PreparedStatement pst = con.prepareStatement(query);
@@ -55,12 +53,12 @@
                     session.setAttribute("email", rs.getString("email"));
                     response.sendRedirect("dashboard.jsp");
                 } else {
-                    out.println("Invalid credentials.");
+                    out.println("❌ Invalid credentials.");
                 }
 
                 con.close();
             } catch(Exception e) {
-                out.println(e);
+                out.println("❌ Error: " + e.getMessage());
             }
         }
     %>

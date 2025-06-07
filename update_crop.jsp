@@ -18,7 +18,7 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        conn = db.DBConnection.getConnection();
 
         String fetchQuery = "SELECT crop_name, quantity, price_per_unit, location FROM crops WHERE id = ?";
         pst = conn.prepareStatement(fetchQuery);

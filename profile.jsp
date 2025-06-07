@@ -25,7 +25,7 @@
             ResultSet rs = null;
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+            con = db.DBConnection.getConnection();
             String query = "SELECT address FROM users WHERE username = ?";
             stmt = con.prepareStatement(query);
             stmt.setString(1, username);
@@ -60,7 +60,7 @@
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+            con = db.DBConnection.getConnection();
 
             // Update only username and address in the database
             String updateQuery = "UPDATE users SET username = ?, address = ? WHERE username = ?";

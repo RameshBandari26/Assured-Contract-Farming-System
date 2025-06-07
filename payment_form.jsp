@@ -22,7 +22,7 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        conn = db.DBConnection.getConnection();
 
         // Query to fetch accepted contracts for this buyer
         String query = "SELECT c.id AS contract_id, cr.crop_name, cr.quantity, cr.price_per_unit, f.upi_id, f.ifsc_code, f.account_number " +

@@ -20,7 +20,7 @@
         try {
            
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+            conn = db.DBConnection.getConnection();
 
             String checkQuery = "SELECT * FROM users WHERE email = ?";
             pst = conn.prepareStatement(checkQuery);

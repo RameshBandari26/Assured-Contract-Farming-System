@@ -9,7 +9,7 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        conn = db.DBConnection.getConnection();
 
         // Retrieve the crop ID associated with the contract
         String fetchCropIdQuery = "SELECT crop_id FROM contracts WHERE id = ?";

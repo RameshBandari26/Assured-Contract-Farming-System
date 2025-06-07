@@ -12,7 +12,7 @@
 
         // Database connection
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        conn = db.DBConnection.getConnection();
 
         // Insert payment record
         String insertPayment = "INSERT INTO payments (contract_id, payment_method, transaction_id) VALUES (?, ?, ?)";

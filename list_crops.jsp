@@ -53,7 +53,7 @@
         if (crop_name != null && quantity != null && price_per_unit != null && location != null) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+                Connection con = db.DBConnection.getConnection();
 
                 String query = "INSERT INTO crops (farmer_id, crop_name, quantity, price_per_unit, location) VALUES ((SELECT id FROM users WHERE username = ?), ?, ?, ?, ?)";
                 PreparedStatement pst = con.prepareStatement(query);

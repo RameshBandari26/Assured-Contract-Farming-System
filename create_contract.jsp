@@ -23,7 +23,7 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver"); // Update to use the correct driver class
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        Connection con = db.DBConnection.getConnection();
 
         String query = "INSERT INTO contracts (crop_id, buyer_id) VALUES (?, (SELECT id FROM users WHERE username = ?))";
         
