@@ -40,7 +40,21 @@ git clone https://github.com/RameshBandari26/Assured-Contract-Farming-System.git
 cd Assured-Contract-Farming-System
 ```
 
-3️⃣ **Deploy on Apache Tomcat:**  
+### 🚀 **Live Demo**
+
+🔗 [https://agritech-ntg2.onrender.com](https://agritech-ntg2.onrender.com)
+
+---
+
+### 3️⃣ **Deployment Options**
+
+#### ✅ **Deploy on Render (Recommended)**  
+- This project is hosted on [Render](https://render.com).  
+- Visit the live app here:  
+
+
+
+#### 🧪 **Run Locally with Apache Tomcat**  
 - Place the project inside the `webapps` folder of Apache Tomcat.  
 - Start the Tomcat server.  
 - Access the app at:  
