@@ -1,10 +1,19 @@
-FROM tomcat:9-jdk17
+FROM openjdk:21-jdk
 
-# Clear default Tomcat webapps
-RUN rm -rf /usr/local/tomcat/webapps/*
+ENV TOMCAT_VERSION=9.0.75
+ENV CATALINA_HOME=/usr/local/tomcat
+ENV PATH=$CATALINA_HOME/bin:$PATH
 
-# Copy your project into Tomcat ROOT
-COPY . /usr/local/tomcat/webapps/ROOT/
+RUN apt-get update && apt-get install -y wget curl \
+    && wget https://dlcdn.apache.org/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
+    && mkdir -p $CATALINA_HOME \
+    && tar xzf apache-tomcat-${TOMCAT_VERSION}.tar.gz -C $CATALINA_HOME --strip-components=1 \
+    && rm apache-tomcat-${TOMCAT_VERSION}.tar.gz \
+    && apt-get clean
+
+RUN rm -rf $CATALINA_HOME/webapps/*
+
+COPY . $CATALINA_HOME/webapps/ROOT/
 
 EXPOSE 8080
 
