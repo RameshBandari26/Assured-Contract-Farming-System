@@ -55,7 +55,7 @@
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+            conn = db.DBConnection.getConnection();
 
             // Update payment details for the logged-in user
             String updateQuery = "UPDATE users SET upi_id = ?, account_number = ?, ifsc_code = ? WHERE username = ?";
