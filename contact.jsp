@@ -196,7 +196,7 @@ footer p {
                 <li>Address: 123 Agriculture Lane, Greenfield, USA</li>
             </ul>
             <h3>Send Us a Message</h3>
-            <form action="submit_contact.jsp" method="post">
+            <form action="https://api.web3forms.com/submit" method="post">
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br><br>
                 <label for="email">Email:</label><br>
