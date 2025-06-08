@@ -1,25 +1,22 @@
 <%@ page import="java.sql.*, javax.servlet.http.*, javax.servlet.*" %>
 
 <%
-    // Check if the user is logged in
     if (session == null || session.getAttribute("username") == null) {
-        response.sendRedirect("login.jsp"); // Redirect to login if the user is not logged in
+        response.sendRedirect("login.jsp");
         return;
     }
 
-    // Get user details from the session
     String username = (String) session.getAttribute("username");
     String address = (String) session.getAttribute("address");
-    String role = (String) session.getAttribute("role");  
+    String role = (String) session.getAttribute("role");
     String email = (String) session.getAttribute("email");
 
-    // Ensure variables are not null
     if (username == null) username = "Unknown";
-    if (role == null) role = "Buyer"; // Default role
+    if (role == null) role = "Buyer";
     if (email == null) email = "Not Provided";
+
     if (address == null || address.equals("Not Provided")) {
         try {
-            // Fetch the address from the database if not available in the session
             Connection con = null;
             PreparedStatement stmt = null;
             ResultSet rs = null;
@@ -33,7 +30,7 @@
 
             if (rs.next()) {
                 address = rs.getString("address");
-                session.setAttribute("address", address); // Update the session with the fetched address
+                session.setAttribute("address", address);
             }
 
             if (stmt != null) stmt.close();
@@ -43,13 +40,9 @@
         }
     }
 
-    // Feedback message
     String message = "";
-
-    // Flag for edit mode
     boolean isEditing = "edit".equals(request.getParameter("action"));
 
-    // Handle form submission (update user details)
     if ("POST".equalsIgnoreCase(request.getMethod())) {
         String newUsername = request.getParameter("username");
         String newAddress = request.getParameter("address");
@@ -58,11 +51,9 @@
         PreparedStatement stmt = null;
 
         try {
-            // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = db.DBConnection.getConnection();
 
-            // Update only username and address in the database
             String updateQuery = "UPDATE users SET username = ?, address = ? WHERE username = ?";
             stmt = con.prepareStatement(updateQuery);
             stmt.setString(1, newUsername);
@@ -71,7 +62,6 @@
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
-                // Update session variables
                 session.setAttribute("username", newUsername);
                 session.setAttribute("address", newAddress);
                 username = newUsername;
@@ -93,14 +83,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="website icon" type="png" href="logo.png">
-    <link rel="stylesheet" href="profile.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="profile-container">
-        <div class="left-panel">
+<body class="font-sans text-white bg-gradient-to-r from-[#f4505b] via-[#bf6fe2] to-[#2bbde6] flex justify-center items-center h-screen m-0">
+
+    <div class="flex flex-col md:flex-row overflow-hidden h-auto md:h-[60%] max-w-7xl w-full">
+
+        <!-- Left Panel -->
+        <div class="w-full max-w-[300px] md:max-w-[400px] mr-4 bg-gradient-to-r from-[#3a3a3a] to-[#040404] flex flex-col justify-center items-center p-5 text-white rounded-[15px]">
+
             <%
             String imagePath = "";
             if ("farmer".equalsIgnoreCase(role)) {
@@ -109,45 +102,51 @@
                 imagePath = "buyer.jpg";
             }
             %>
-            <img src="<%= imagePath %>" alt="Profile">
-            <h1><%= username %></h1>
-            <p><%= (role.equalsIgnoreCase("farmer")) ? "Farmer" : "Buyer" %></p>
+            <img src="<%= imagePath %>" alt="Profile" class="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full mb-2 border-[3px] border-white">
+            <h1 class="text-[20px] mb-1"><%= username %></h1>
+            <p class="text-[16px] m-0"><%= (role.equalsIgnoreCase("farmer")) ? "Farmer" : "Buyer" %></p>
         </div>
 
-        <div class="right-panel">
-            <h2>Profile Details</h2><div class="container">
-            <% if (!message.isEmpty()) { %>
-                <p style="color: green;"><%= message %></p>
-            <% } %>
+        <!-- Right Panel -->
+        <div class="w-full max-w-4xl md:max-w-5xl bg-gradient-to-r from-[#040404] to-[#3a3a3a] p-5 rounded-[15px] flex flex-col justify-center">
+            <h2 class="text-center text-[35px] border-b-2 border-[#555] pb-2 mb-5">Profile Details</h2>
+            <div class="pl-5 md:pl-[200px]">
+                <% if (!message.isEmpty()) { %>
+                    <p class="text-green-400"><%= message %></p>
+                <% } %>
 
-            <!-- Toggle between view and edit mode -->
-            <% if (!isEditing) { %>
-                <!-- View mode -->
-                <p class="details"><strong>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong> <%= username %></p>
-                <p class="details"><strong>Role &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong> <%= role %></p>
-                <p class="details"><strong>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong> <%= email %></p>
-                <p class="details"><strong>Address &nbsp;&nbsp;: </strong> <%= address %></p>
-                <form action="profile.jsp" method="get">
-                    <input type="hidden" name="action" value="edit">
-                    <button type="submit" class="edit-button">Edit Profile</button>
-                    <a href="dashboard.jsp" class="cancel-button">Dashboard</a>
-                </form>
-            <% } else { %>
-                <!-- Edit mode -->
-                <form action="profile.jsp" method="post">
-                    <p class="details"><strong>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong>
-                    <input type="text" id="username" name="username" value="<%= username %>" required></p>
-                    <input type="hidden" name="role" value="<%= role %>">
-                    <input type="hidden" name="email" value="<%= email %>">
-                    <p class="details"><strong>Role &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <%= role %></p>
-                    <p class="details"><strong>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <%= email %></p>
-                    <p class="details"><strong>Address &nbsp;&nbsp;:</strong>
-                    <input type="text" id="address" name="address" value="<%= address %>" required></p>
-                    <button type="submit" class="save-button">Save Changes</button>
-                    <a href="profile.jsp" class="cancel-button">Cancel</a>
-                </form>
-            <% } %>
-        </div></div>
+                <% if (!isEditing) { %>
+                    <p class="text-[24px] my-2 -ml-[10%]"><strong class="text-[#ff7f50]">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <%= username %></p>
+                    <p class="text-[24px] my-2 -ml-[10%]"><strong class="text-[#ff7f50]">Role &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <%= role %></p>
+                    <p class="text-[24px] my-2 -ml-[10%]"><strong class="text-[#ff7f50]">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <%= email %></p>
+                    <p class="text-[24px] my-2 -ml-[10%]"><strong class="text-[#ff7f50]">Address &nbsp;&nbsp;:</strong> <%= address %></p>
+
+                    <form action="profile.jsp" method="get">
+                        <input type="hidden" name="action" value="edit">
+                        <button type="submit" class="mt-2.5 -ml-[10%] w-[250px] p-2.5 border-none rounded-[10px] cursor-pointer bg-green-600 font-bold">Edit Profile</button>
+                        <a href="dashboard.jsp" class="flex justify-center text-center mt-2.5 -ml-[10%] w-[250px] bg-[#bf6fe2] p-2.5 rounded-[10px] no-underline font-bold text-black">Dashboard</a>
+                    </form>
+                <% } else { %>
+                    <form action="profile.jsp" method="post">
+                        <p class="text-[24px] my-2 leading-[1.5]">
+                            <strong class="text-[#ff7f50] -ml-[10%]">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong>
+                            <input type="text" id="username" name="username" value="<%= username %>" required class="p-2.5 border-none -ml-[10%] rounded-[10px] text-black">
+                        </p>
+                        <input type="hidden" name="role" value="<%= role %>">
+                        <input type="hidden" name="email" value="<%= email %>">
+                        <p class="text-[24px] my-2 leading-[1.5] -ml-[10%]"><strong class="text-[#ff7f50]">Role &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <%= role %></p>
+                        <p class="text-[24px] my-2 leading-[1.5] -ml-[10%]"><strong class="text-[#ff7f50]">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <%= email %></p>
+                        <p class="text-[24px] my-2 leading-[1.5] -ml-[10%]">
+                            <strong class="text-[#ff7f50]">Address &nbsp;&nbsp;:</strong>
+                            <input type="text" id="address" name="address" value="<%= address %>" required class="p-2.5 border-none rounded-[10px] text-black">
+                        </p>
+                        <button type="submit" class="mt-2.5 -ml-[10%] w-[300px] p-2.5 border-none rounded-[10px] cursor-pointer bg-green-600 font-bold">Save Changes</button>
+                        <a href="profile.jsp" class="flex justify-center text-center mt-2.5 -ml-[10%] w-[300px] bg-[#bf6fe2] p-2.5 rounded-[10px] no-underline font-bold text-black">Cancel</a>
+                    </form>
+                <% } %>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
