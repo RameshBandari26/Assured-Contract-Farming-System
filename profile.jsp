@@ -130,7 +130,7 @@
                     <form action="profile.jsp" method="post">
                         <p class="text-[24px] my-2 leading-[1.5]">
                             <strong class="text-[#ff7f50] -ml-[10%]">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong>
-                            <input type="text" id="username" name="username" value="<%= username %>" required class="p-2.5 border-none -ml-[10%] rounded-[10px] text-black">
+                            <input type="text" id="username" name="username" value="<%= username %>" required class="p-2.5 border-none rounded-[10px] text-black">
                         </p>
                         <input type="hidden" name="role" value="<%= role %>">
                         <input type="hidden" name="email" value="<%= email %>">
