@@ -2,120 +2,190 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assured Contract Farming System</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind (via CDN for quick demo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="website icon" type="png" href="logo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
+    <!-- Custom key-frame for the news ticker -->
+    <style>
+        @layer utilities {
+            @keyframes ticker {
+                0% {
+                    transform: translateX(100%);
+                }
+
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            .animate-ticker {
+                animation: ticker 25s linear infinite;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-        <div class="container">
-            <h1><img src="logo.png" width="5%" height="5%" class="logo">
-             Assured Contract Farming System</h1>
-            <nav>
-                <a href="./Admin/admin_login.jsp">Admin Login</a> 
-                <a href="login.jsp">User Login</a>
-                <a href="register.jsp">User Register</a>
-                <a href="browse_crops.jsp">Browse Crops</a>
+<body class="min-h-screen flex flex-col bg-gradient-to-tr from-green-50 via-lime-50 to-white text-gray-800">
+
+    <!-- HEADER -->
+    <header class="w-full bg-green-600 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto md:flex items-center justify-between px-6 py-6 relative">
+            <h1 class="flex items-center gap-2 text-xl sm:text-2xl  md:text-3xl  font-bold">
+                <img src="logo.png" alt="Logo" class="w-10 h-10 -mt-4" />
+                Assured Contract Farming System
+            </h1>
+
+            <!-- Nav: always visible -->
+            <nav id="mainNav"
+                class="flex flex-row gap-4 justify-center font-semibold text-xs mt-4 -mb-2 sm:text-sm sm:mt-0 sm:mb-0 md:text-base lg:text-base">
+
+                <a href="./Admin/admin_login.jsp" class="text-white hover:text-lime-400 flex items-center gap-2 -all duration-300 ease-in-out hover:scale-105">
+                    <i class="fas fa-user-shield"></i> Admin Login
+                </a>
+
+                <a href="login.jsp" class="text-white hover:text-lime-400 flex items-center gap-2 
+          transition-all duration-300 ease-in-out hover:scale-105">
+                    <i class="fas fa-sign-in-alt"></i> User Login
+                </a>
+
+                <a href="register.jsp" class="text-white hover:text-lime-400 flex items-center gap-2 
+          transition-all duration-300 ease-in-out hover:scale-105">
+                    <i class="fas fa-user-plus"></i> User Register
+                </a>
+
+                <a href="browse_crops.jsp" class="text-white hover:text-lime-400 flex items-center gap-2 
+          transition-all duration-300 ease-in-out hover:scale-105">
+                    <i class="fas fa-seedling"></i> Browse Crops
+                </a>
             </nav>
+
+
         </div>
     </header>
 
-    <!-- Scrolling Headlines -->
-    <section class="news-ticker">
-        <div class="ticker-wrap">
-            <div class="ticker">
-                <div class="ticker-item">🔔 Register now and secure contracts for your crops!</div>
-                <div class="ticker-item">💰 Get guaranteed payments with every successful contract!</div>
-                <div class="ticker-item">🚜 Browse a variety of crops and connect with buyers instantly.</div>
-            </div>
+
+    <!-- NEWS TICKER -->
+    <section class="bg-gray-800 text-white text-sm py-2 overflow-hidden">
+        <div class="whitespace-nowrap animate-ticker">
+            <span class="inline-block px-12">🔔 Register now and secure contracts for your crops!</span>
+            <span class="inline-block px-12">💰 Get guaranteed payments with every successful contract!</span>
+            <span class="inline-block px-12">🚜 Browse a variety of crops and connect with buyers instantly.</span>
         </div>
     </section>
 
-    <div class="container2">
-        <main>
-            <section class="hero">
-                <div class="hero-content">
-                    <h2>Secure Contracts for Stable Market Access</h2>
-                    <p>Our platform bridges the gap between farmers and buyers by providing transparent agreements, fair
-                        price negotiation, and secure payments for crop produce. Join us to ensure a stable income and
-                        reliable market access.</p>
-                    <div class="cta-buttons">
-                        <a href="login.jsp" class="btn secondary">Get Started Login</a>
-                    </div>
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="flex-1 bg-cover bg-center bg-no-repeat" style="background-image: url('agricultural.jpg');">
+        <div class="bg-white/60 backdrop-blur-sm">
+            <!-- HERO -->
+            <section class="relative">
+                <div class="max-w-5xl mx-auto px-4 py-20 md:py-28 text-center space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900">
+                        Secure Contracts for Stable Market Access
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-base md:text-lg text-gray-700">
+                        Our platform bridges the gap between farmers and buyers by providing transparent agreements,
+                        fair price negotiation, and secure payments for crop produce. Join us to ensure a stable income
+                        and reliable market access.
+                    </p>
+
+                    <a href="login.jsp" class="inline-block bg-green-600 text-white font-semibold rounded-md px-6 py-3 
+          transition duration-300 ease-in-out 
+          hover:bg-green-700 hover:shadow-[0_0_12px_3px_rgba(34,197,94,0.6)] hover:scale-105">
+                        Get Started — Login
+                    </a>
+
                 </div>
             </section>
 
-            <section class="features">
-                <div class="container">
-                    <h3>Why Choose Us?</h3>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <i class="fas fa-file-contract fa-3x"></i>
-                            <h4>Transparent Contracts</h4>
-                            <p>Ensure fair negotiations and clear agreements between farmers and buyers.</p>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-money-check-alt fa-3x"></i>
-                            <h4>Secure Payments</h4>
-                            <p>Reliable payment processing guarantees that farmers are paid on time.</p>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-chart-line fa-3x"></i>
-                            <h4>Market Stability</h4>
-                            <p>Access a reliable market to sell your crops without worrying about price fluctuations.
-                            </p>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-user-friends fa-3x"></i>
-                            <h4>Easy to Use</h4>
-                            <p>Our platform is designed for ease of use, ensuring a seamless experience for both farmers
-                                and buyers.</p>
-                        </div>
-                    </div>
+            <!-- FEATURES -->
+            <section class="bg-white/10 backdrop-blur-xs py-16">
+                <div class="max-w-6xl mx-auto px-4">
+                    <h3 class="text-2xl md:text-3xl font-semibold text-center mb-12">Why Choose Us?</h3>
+
+                   <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+  <!-- Card 1 -->
+  <div class="flex flex-col items-center text-center space-y-3 
+              transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl p-4 rounded-lg">
+    <i class="fas fa-file-contract fa-3x text-green-600 transition duration-300 hover:text-green-700"></i>
+    <h4 class="text-lg font-semibold">Transparent Contracts</h4>
+    <p class="text-sm text-gray-600">Ensure fair negotiations and clear agreements between farmers and buyers.</p>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="flex flex-col items-center text-center space-y-3 
+              transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl p-4 rounded-lg">
+    <i class="fas fa-money-check-alt fa-3x text-green-600 transition duration-300 hover:text-green-700"></i>
+    <h4 class="text-lg font-semibold">Secure Payments</h4>
+    <p class="text-sm text-gray-600">Reliable payment processing guarantees that farmers are paid on time.</p>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="flex flex-col items-center text-center space-y-3 
+              transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl p-4 rounded-lg">
+    <i class="fas fa-chart-line fa-3x text-green-600 transition duration-300 hover:text-green-700"></i>
+    <h4 class="text-lg font-semibold">Market Stability</h4>
+    <p class="text-sm text-gray-600">Access a reliable market to sell your crops without worrying about price fluctuations.</p>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="flex flex-col items-center text-center space-y-3 
+              transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl p-4 rounded-lg">
+    <i class="fas fa-user-friends fa-3x text-green-600 transition duration-300 hover:text-green-700"></i>
+    <h4 class="text-lg font-semibold">Easy to Use</h4>
+    <p class="text-sm text-gray-600">A seamless experience designed for both farmers and buyers.</p>
+  </div>
+</div>
+
                 </div>
             </section>
-        </main>
+        </div>
+    </div><!-- /flex-1 -->
 
-        <!-- Back to Top Button -->
-        <button id="backToTopBtn"><i class="fas fa-arrow-up"></i></button>
+    <!-- BACK-TO-TOP BUTTON -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 hidden bg-green-500 hover:bg-green-700 text-white p-3 md:p-4 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
+        <i class="fas fa-arrow-up text-lg"></i>
+    </button>
 
 
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 Assured Contract Farming System. All rights reserved.</p>
-                <nav>
-                    <a href="contact.jsp">Contact Us</a>
-                    <a href="about.jsp">About Us</a>
-                    <a href="privacy_policy.jsp">Privacy Policy</a>
-                </nav>
-            </div>
-        </footer>
-    </div>
-    <!-- JavaScript -->
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-gray-100 py-8 border-t-4 border-green-500">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+            <p class="text-sm">&copy; 2024 Assured Contract Farming System. All rights reserved.</p>
+
+            <nav class="flex justify-center gap-6 text-sm font-semibold ">
+                <a href="contact.jsp" class="hover:text-green-400 flex items-center gap-2 -all duration-300 ease-in-out hover:scale-105">Contact Us</a>
+                <a href="about.jsp" class="hover:text-green-400 flex items-center gap-2 -all duration-300 ease-in-out hover:scale-105">About Us</a>
+                <a href="privacy_policy.jsp" class="hover:text-green-400 flex items-center gap-2 -all duration-300 ease-in-out hover:scale-105">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- JS: nav toggle + back-to-top -->
     <script>
-        // document.querySelectorAll('nav a').forEach(anchor => {
-        //     anchor.addEventListener('click', function (e) {
-        //         e.preventDefault();
-        //         document.querySelector(this.getAttribute('href')).scrollIntoView({
-        //             behavior: 'smooth'
-        //         });
-        //     });
-        // });
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const backToTop = document.getElementById('backToTop');
 
-        const backToTopBtn = document.getElementById('backToTopBtn');
-        window.onscroll = function () {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        };
-        backToTopBtn.addEventListener('click', function () {
+        menuToggle?.addEventListener('click', () => {
+            mainNav.classList.toggle('hidden');
+            mainNav.classList.toggle('flex');
+        });
+
+        window.addEventListener('scroll', () => {
+            const show = document.documentElement.scrollTop > 200 || document.body.scrollTop > 200;
+            backToTop.classList.toggle('hidden', !show);
+        });
+
+        backToTop?.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
