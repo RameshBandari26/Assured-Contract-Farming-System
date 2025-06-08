@@ -3,7 +3,7 @@
     int userId = Integer.parseInt(request.getParameter("user_id"));
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+        Connection conn = db.DBConnection.getConnection();
         String query = "DELETE FROM users WHERE id = ?";
         PreparedStatement pst = conn.prepareStatement(query);
         pst.setInt(1, userId);
