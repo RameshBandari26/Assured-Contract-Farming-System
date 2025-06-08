@@ -38,7 +38,7 @@
 
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/contract_farming", "root", "Ramesh26@");
+                        conn = db.DBConnection.getConnection();
 
                         String query = "SELECT c.id AS contract_id, f.username AS farmer, b.username AS buyer, cr.crop_name, " +
                                        "cr.quantity, cr.price_per_unit AS price, c.contract_status " +
