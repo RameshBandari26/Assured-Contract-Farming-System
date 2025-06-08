@@ -84,6 +84,13 @@ button {
     font-size: 1.2rem;
     border: none;
 }
+button:hover {
+  background-color: rgb(7, 100, 7); /* Darker green */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transform: scale(1.05); /* Slightly enlarge */
+  transition: all 0.3s ease;
+}
+
 a{
     color: white;
 }
