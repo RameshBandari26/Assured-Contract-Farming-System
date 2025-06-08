@@ -197,6 +197,7 @@ footer p {
             </ul>
             <h3>Send Us a Message</h3>
             <form action="https://api.web3forms.com/submit" method="post">
+                <input type="hidden" name="access_key" value="93ef86da-f425-4fa7-945b-9f54801adb49" />
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br><br>
                 <label for="email">Email:</label><br>
